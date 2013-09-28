@@ -11,8 +11,14 @@ var path = require('path');
 
 var app = express();
 
-var arrange = require('./application/arrange');
-var admin = require('./application/admin');
+
+app.use(express.static(path.join(__dirname, './app/public')));
+var models = require('./app/arrange-models');
+app.set('arrange-models', models);
+
+
+var arrange = require('./app/arrange');
+var admin = require('./app/admin');
 app.use(arrange);
 app.use(admin);
 
