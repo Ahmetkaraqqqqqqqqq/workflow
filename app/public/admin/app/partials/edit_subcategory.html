@@ -1,0 +1,68 @@
+<nav class="admin-menu" ng-init="get();">
+	<ul>
+		<li class="other">
+			<a href="/admin/app/#/subcategories" ng-click="getAll()">Pesquisar SubCategorias</a>
+		</li>
+		<li class="current">
+			<a href="/admin/app/#/subcategories/add">Editar SubCategoria</a>
+		</li>
+	</ul>
+</nav>
+<section id="settings-sub-content" class="animated fadeIn">
+	<div class="media">
+		<div class="img-polaroid pull-left">	
+			<div class="media-object">
+				<img src="http://sambavideos.sambatech.com/stylesheets/modules/img/placeholder-profile-thumbnail.png">
+			</div>
+		</div>
+		<div class="media-body">
+
+			<span class="label label-info">Sub-Categoria</span>
+			<h2 ng-bind="subcategory.name" class="media-heading">{{subcategory.name}}</h2>
+
+		</div>
+	</div>
+
+	<form>
+		<div class="span8">
+			<div class="control-group">
+				<label><b>Categoria</b></label>
+
+				<select ng-model="subcategory.category_id" ng-options="category.id as category.name for category in categories"></select>
+			</div>
+
+			<div class="tab_lang" style="display: table; width: 100%;">
+				<ul class="nav nav-tabs">
+					<li ng-click="page='pt_BR'" class="active"><a href="#pt" data-toggle="tab"><img class="flag flag-br" /> Português</a></li>
+					<li ng-click="page='en_US'"><a href="#en" data-toggle="tab"><img class="flag flag-us" /> English</a></li>
+				</ul>
+			</div>
+
+			<div class="langs" ng-switch on="page" ng-init="page='pt_BR'">
+
+				<div ng-switch-when="pt_BR" >
+					<div class="control-group">
+						<label><b>Nome</b></label>
+						<input required name="categoryName" ng-model='subcategory.descriptions.pt.name' type="text" class="span4 input-large">
+					</div>
+				</div>
+
+				<div ng-switch-when="en_US">
+					<div class="control-group">
+						<label><b>Name</b></label>
+						<input required name="categoryName" ng-model='subcategory.descriptions.en.name' type="text" class="span4 input-large">
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+		<div class="form-actions" style="display: table;width: 97%;">
+			<div class="pull-right">
+				<a href="#subcategories" class="btn btn-link cancel">Cancelar</a>
+				<button type="button" ng-click="save(subcategory)" class="btn btn-primary">Salvar</button>
+			</div>
+		</div>
+	</form>
+
+</section>

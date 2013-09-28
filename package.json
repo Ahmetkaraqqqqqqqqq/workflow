@@ -1,12 +1,28 @@
 {
-  "name": "application-name",
+  "name": "arrange",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node-dev app.js"
   },
   "dependencies": {
-    "express": "3.4.0",
-    "jade": "*"
+    "express": "3.3.4",
+    "ejs": "0.8.4",
+    "chromelogger": "1.1.0",
+    "mysql": "2.0.0-alpha8",
+    "sequelize": "2.0.0-alpha3",
+    "underscore": "1.5.1",
+    "async": "~0.2.9",
+    "request": "2.27.0",
+    "nodemailer": "*",
+    "locale": "0.0.10",
+    "nodetime": "~0.8.13"
+  },
+  "devDependencies": {
+    "mocha": "1.12",
+    "supertest": "0.7.1",
+    "node-dev": "2.0.2",
+    "should": "*",
+    "bower": "1.2.6"
   }
 }

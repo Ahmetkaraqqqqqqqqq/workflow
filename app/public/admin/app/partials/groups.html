@@ -1,0 +1,66 @@
+<nav class="admin-menu">
+	<ul>
+		<li class="current_first">
+			<a href="/admin/app/#/groups" ng-click="getAll()">Pesquisar Grupos</a>
+		</li>
+		<li class="other">
+			<a href="/admin/app/#/groups/add">Adicionar Grupo</a>
+		</li>
+	</ul>
+</nav>
+<div id="dash" class="well well-small" ng-init="getAll()">
+	<form class="form form-inline">
+		<div id="check-all" class="pull-left hide">
+			<input type="checkbox" value="">
+		</div>
+		<div class="pull-left hide">
+			<div class="btn-group">
+				<button class="btn dropdown-toggle disabled actions" data-toggle="dropdown">Ações <span class="caret"></span></button>
+				<ul class="dropdown-menu action-menu">
+					<li class="delete-user"><a href="#">Excluir</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="pull-right">
+			<div class="control-group">
+				<div class="controls">
+					<div class="input-append">
+						<input ng-model="searchText" id="users-search" type="text" class="input-xlarge" placeholder="Filtrar grupos">
+						<span class="add-on"><i class="icon-search"></i></span>
+					</div>
+				</div>
+			</div>
+			<label class="hide" for="">Ordenar</label> 
+			<select class="hide input-medium" id="user-order">
+				<option value="userName">Nome</option>
+			</select>
+		</div>
+	</form>
+</div>
+<table id="list-users" class="table table-bordered table-hover">
+	<tr ng-repeat="group in groups | filter:searchText" >
+		<td>
+			<div class="media">
+				<div class="pull-left">
+					<div class="media-object">
+						<img src="http://sambavideos.sambatech.com/stylesheets/modules/img/placeholder-profile-thumbnail.png" class="img-rounded">
+					</div>
+				</div>
+				<div class="media-body">
+					<dl>
+						<dt>{{group.name}}</dt>
+						<dd>{{group.email}}</dd>
+						<span ng-show="group.id != 2 && group.id != 3"><a ng-click="deleteGroup(group)"  >Apagar</a> |</span> <a ng-click="getGroup({{group.id}})" href="/admin/app/#/groups/{{group.id}}">Editar</a>
+					</dl>
+				</div>
+			</div>
+		</td>
+		<td>
+			<dl>
+				<dt></dt>
+			</dl>
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,15 @@
+{
+  "name": "moment-timezone",
+  "homepage": "https://github.com/moment/moment-timezone",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "da81c205417dd0fe7bbd9ce88cf8db0300a9e8c1"
+  },
+  "_source": "git://github.com/moment/moment-timezone.git",
+  "_target": "~0.0.1",
+  "_originalSource": "moment-timezone",
+  "_direct": true
+}
