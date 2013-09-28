@@ -7,9 +7,10 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 
-var app = express();
+app = express();
 
 
+app.set('appConfig', require('./config/config.js'));
 app.use(express.static(path.join(__dirname, './app/public')));
 var models = require('./app/arrange-models');
 app.set('arrange-models', models);

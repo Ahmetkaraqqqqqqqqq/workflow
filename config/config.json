@@ -1,0 +1,16 @@
+{
+   "default":{
+      "username": "root",
+      "password": "root",
+      "database": "arrange",
+      "host": "localhost",
+      "port": "3306"
+   },
+   "test":{
+      "username": "root",
+      "password": "root",
+      "database": "arrange_test",
+      "host": "localhost",
+      "port": "3306"
+   }   
+}
