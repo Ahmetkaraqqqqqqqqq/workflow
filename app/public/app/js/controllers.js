@@ -1,11 +1,12 @@
 'use strict';
 
 /* Controllers */
-function AppCtrl ($rootScope, $scope, $location, User){
-	$rootScope.config = {};
-	$rootScope.loading = false;
-	$scope.user = {company:''};
+function AppCtrl ($rootScope, $scope, $location, Task){
 	$rootScope.lang = '';
 	$scope.myuser = {};
+
+	$scope.get = function(){
+		
+	}
 }
-AppCtrl.$inject = ['$rootScope', '$scope', '$location', 'User'];
+AppCtrl.$inject = ['$rootScope', '$scope', '$location', 'Task'];
