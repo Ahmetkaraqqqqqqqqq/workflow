@@ -20,6 +20,8 @@ app.use(express.session());
 app.use(chromelogger.middleware);
 app.use(app.router);
 
+var task = require('./routes/task') 
+app.post('/a/tasks/new', task.add);
 
 app.all('/', function (req, res)
 {	

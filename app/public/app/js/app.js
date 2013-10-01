@@ -11,7 +11,7 @@ angular.module('nsApp', [
 			templateUrl: 'partials/index.html'
 		});
 
-		$routeProvider.when('/new_task', {
+		$routeProvider.when('/tasks/new', {
 			templateUrl: 'partials/add_task.html'
 		});
 
