@@ -2,11 +2,13 @@
 
 /* Controllers */
 function AppCtrl ($rootScope, $scope, $location, Task){
-	$rootScope.lang = '';
-	$scope.myuser = {};
+	$scope.form = {};
 
-	$scope.get = function(){
-		
+	$scope.add = function(params){
+		console.log("I'm here", $scope.form);
+		Task.add($scope.form, function(task){
+		  	$location.path('/');
+		});
 	}
 }
 AppCtrl.$inject = ['$rootScope', '$scope', '$location', 'Task'];

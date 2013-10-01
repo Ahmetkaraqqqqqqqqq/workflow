@@ -10,8 +10,8 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 {
 	var Task = {};
 
-	Task.new = function(params, callback){
-		$http.post('/a/tasks/new', {params : title, params : description}).success(function (data)
+	Task.add = function(params, callback){
+		$http.post('/a/tasks/new', params).success(function (data)
 		{
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
