@@ -9,3 +9,9 @@ exports.add = function(params, callback){
 		callback(task);
 	});
 }
+
+exports.all = function(callback){
+	models.Task.findAll().success(function(data){
+		callback(data);
+	});
+}

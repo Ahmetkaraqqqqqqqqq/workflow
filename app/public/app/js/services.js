@@ -22,5 +22,18 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 			}
 		});
 	}
+
+	Task.all = function(callback){
+		$http.get('/a/tasks').success(function (data)
+		{
+			if (data.error === undefined) {
+				if (typeof callback == 'function') {
+					callback(data);
+				}
+			} else{
+				callback({});
+			}
+		});
+	}
 	return Task;
 }]);

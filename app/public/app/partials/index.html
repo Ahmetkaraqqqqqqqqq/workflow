@@ -1,4 +1,4 @@
-<section class="hbox stretch" id="taskapp">
+<section class="hbox stretch" id="taskapp" ng-init="all()">
 	<aside>
 		<section class="vbox">
 			<header class="header bg-light lter bg-gradient b-b">
@@ -7,4 +7,24 @@
 			</header>
 		</section>
 	</aside>
+	<section class="hbox stretch">
+		<!-- .aside --> 
+		<aside>
+			<section class="vbox">
+				<section class="scrollable wrapper">
+					<!-- task list --> 
+					<ul id="task-list" class="list-group list-group-sp">
+						<li ng-repeat="task in tasks" class="list-group-item hover active">
+							<div class="view" id="task-2"> <button class="destroy close hover-action">×</button>
+								<div class="checkbox">
+									<input class="toggle" type="checkbox"> <span class="task-name">{{task.title}}</span><input class="edit form-control" type="text" value="New task">
+								</div> 
+							</div> 
+						</li>
+					</ul>
+				</section>
+			</section>
+		</aside>
+		<!-- /.aside --> 
+	</section>
 </section>
