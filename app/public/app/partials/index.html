@@ -10,17 +10,11 @@
 					<!-- .aside --> 
 					<aside>
 						<section class="vbox">
-							<section class="scrollable wrapper">
+							<section class="wrapper">
 								<!-- task list --> 
 								<ul id="task-list">
 									<li ng-repeat="task in tasks">
-										<div id="{{task.id + task.name}}"> <button class="destroy close hover-action">×</button>
-											<div>
-												<input class="toggle" type="checkbox">
-												<span>{{task.title}}</span>
-												<input class="edit form-control" type="text" value="New task">
-											</div> 
-										</div> 
+										<span>{{task.title}}</span>
 									</li>
 								</ul>
 							</section>
