@@ -2,6 +2,7 @@ var models 	= app.get('arrange-models'),
 	_ 		= require("underscore");
 
 exports.add = function(params, callback){
+	console.log('parças', params)
 	models.Task.create({
 		title: params.title,
 		description: params.description

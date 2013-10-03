@@ -6,7 +6,7 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 	$scope.tasks = {};
 
 	$scope.add = function(params){
-		console.log("I'm here", $scope.form);
+		console.log("I'm here", params);
 		Task.add($scope.form, function(task){
 		  	$location.path('/');
 		});
@@ -14,6 +14,7 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 
 	$scope.all = function(){
 		Task.all(function(tasks){
+			console.log('monter',tasks);
 			$scope.tasks = tasks;
 		});
 	}
