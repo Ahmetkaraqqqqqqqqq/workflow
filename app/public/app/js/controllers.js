@@ -4,6 +4,9 @@
 function AppCtrl ($rootScope, $scope, $location, Task){
 	$scope.form = {};
 	$scope.tasks = {};
+	$scope.todo = {};
+	$scope.doing = {};
+	$scope.done = {};
 
 	$scope.add = function(params){
 		console.log("I'm here", params);
@@ -19,10 +22,24 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 		});
 	}
 
-	$scope.find = function(params){
+	$scope.findTodo = function(params){
 		Task.find(params, function(tasks){
 			console.log('monter',tasks);
-			$scope.tasks = tasks;
+			$scope.todo = tasks;
+		});
+	}
+
+	$scope.findDoing = function(params){
+		Task.find(params, function(tasks){
+			console.log('monter',tasks);
+			$scope.doing = tasks;
+		});
+	}
+
+	$scope.findDone = function(params){
+		Task.find(params, function(tasks){
+			console.log('monter',tasks);
+			$scope.done = tasks;
 		});
 	}
 }

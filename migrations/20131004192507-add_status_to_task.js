@@ -1,6 +1,6 @@
 module.exports = {
   up: function(migration, DataTypes, done) {
-		migration.addColumn('Task', 'status', DataTypes.BOOLEAN);
+		migration.addColumn('Task', 'status', DataTypes.STRING);
 		done()
 	},
 	down: function(migration, DataTypes, done) {

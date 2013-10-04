@@ -11,12 +11,27 @@
 					<aside>
 						<section class="vbox">
 							<section class="wrapper">
-								<!-- task list --> 
-								<ul ng-init="find(todo)" id="task-list">
-									<li draggable='true' ng-repeat="task in tasks">
+								<!-- todo task list --> 
+								<ul ng-init="findTodo(todo)" id="task-list">
+									<li draggable='true' ng-repeat="task in todo">
 										<span>{{task.title}}</span>
 									</li>
 								</ul>
+
+								<!-- doing task list --> 
+								<ul ng-init="findDoing(doing)" id="task-list">
+									<li draggable='true' ng-repeat="task in doing">
+										<span>{{task.title}}</span>
+									</li>
+								</ul>
+
+								<!-- done task list --> 
+								<ul ng-init="findDone(done)" id="task-list">
+									<li draggable='true' ng-repeat="task in done">
+										<span>{{task.title}}</span>
+									</li>
+								</ul>
+
 							</section>
 						</section>
 					</aside>
