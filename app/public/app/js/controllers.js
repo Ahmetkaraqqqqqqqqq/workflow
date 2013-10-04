@@ -18,5 +18,12 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 			$scope.tasks = tasks;
 		});
 	}
+
+	$scope.find = function(params){
+		Task.find(params, function(tasks){
+			console.log('monter',tasks);
+			$scope.tasks = tasks;
+		});
+	}
 }
 AppCtrl.$inject = ['$rootScope', '$scope', '$location', 'Task'];

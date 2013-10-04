@@ -24,6 +24,16 @@
 		</div> 
 	</div> 
 	<div class="form-group">
+		<label class="col-sm-3 control-label">Status</label>
+		<div class="col-sm-5">
+			<select ng-model="form.status" name="status" id="status">
+				<option value="todo">Todo</option>
+				<option value="doing">Doing</option>
+				<option value="done">Done</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
 		<div class="col-sm-4 col-sm-offset-3">
 			<button type="submit" class="btn btn-white">Cancel</button>
 			<button ng-click="add(form)" class="btn btn-primary">Save changes</button>

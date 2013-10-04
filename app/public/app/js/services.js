@@ -11,8 +11,7 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 	var Task = {};
 
 	Task.add = function(params, callback){
-		$http.post('/a/tasks/new', params).success(function (data)
-		{
+		$http.post('/a/tasks/new', params).success(function (data){
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
 					callback(data);
@@ -24,8 +23,7 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 	}
 
 	Task.all = function(callback){
-		$http.get('/a/tasks').success(function (data)
-		{
+		$http.get('/a/tasks').success(function(data){
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
 					callback(data);
@@ -33,6 +31,18 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 			} else{
 				callback({});
 			}
+		});
+	}
+
+	Task.find = function(params, callback){
+		$http.get('/a/tasks?status='+params).success(function(data){
+			if (data.error === undefined) {
+				if (typeof callback == 'function') {
+					callback(data);
+				};
+			} else{
+				callback({});
+			};
 		});
 	}
 	return Task;

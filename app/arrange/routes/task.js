@@ -13,3 +13,10 @@ exports.all = function(req, res){
 		res.json(task);
 	});
 }
+
+exports.finder = function(req, res){
+	console.log('req', req.body)
+	controller.task.finder(req.params, function(task){
+		res.json(task);
+	});
+}

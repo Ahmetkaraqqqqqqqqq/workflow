@@ -23,6 +23,7 @@ app.use(app.router);
 var task = require('./routes/task');
 app.post('/a/tasks/new', task.add);
 app.get('/a/tasks', task.all);
+app.get('/a/tasks/status', task.finder);
 
 app.all('/', function (req, res)
 {	
