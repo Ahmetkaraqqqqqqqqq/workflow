@@ -35,7 +35,7 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 	}
 
 	Task.find = function(params, callback){
-		$http.get('/a/tasks?status='+params).success(function(data){
+		$http.get('/a/task?status='+params.status).success(function(data){
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
 					callback(data);

@@ -15,8 +15,9 @@ exports.all = function(req, res){
 }
 
 exports.finder = function(req, res){
-	console.log('req', req.body)
-	controller.task.finder(req.params, function(task){
+	console.log('req', req.query)
+	var status = req.query.status;
+	controller.task.finder(status, function(task){
 		res.json(task);
 	});
 }

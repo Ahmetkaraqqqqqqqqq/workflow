@@ -22,7 +22,11 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 		});
 	}
 
-	$scope.findTodo = function(params){
+	$scope.findTodo = function(){
+		var params = {
+			status : 'todo'
+		};
+
 		Task.find(params, function(tasks){
 			console.log('monter',tasks);
 			$scope.todo = tasks;
@@ -30,6 +34,10 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 	}
 
 	$scope.findDoing = function(params){
+		var params = {
+			status : 'doing'
+		};
+
 		Task.find(params, function(tasks){
 			console.log('monter',tasks);
 			$scope.doing = tasks;
@@ -37,6 +45,10 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 	}
 
 	$scope.findDone = function(params){
+		var params = {
+			status : 'done'
+		};
+
 		Task.find(params, function(tasks){
 			console.log('monter',tasks);
 			$scope.done = tasks;

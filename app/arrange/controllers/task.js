@@ -20,7 +20,7 @@ exports.all = function(callback){
 
 exports.finder = function(params, callback){
 	console.log('OLÀAA', params)
-	models.Task.findAll({where : ['status=?', params]}).success(function(data){
+	models.Task.findAll({where : {status: params}}).success(function(data){
 		callback(data);
 	});
 }
