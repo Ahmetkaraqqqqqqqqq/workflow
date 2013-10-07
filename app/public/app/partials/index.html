@@ -11,26 +11,32 @@
 					<aside>
 						<section class="vbox">
 							<section class="wrapper">
-								<!-- todo task list --> 
-								<ul ng-init="findTodo()" id="task-list">
-									<li draggable='true' ng-repeat="task in todo">
-										<span>{{task.title}}</span>
-									</li>
-								</ul>
-
-								<!-- doing task list --> 
-								<ul ng-init="findDoing()" id="task-list">
-									<li draggable='true' ng-repeat="task in doing">
-										<span>{{task.title}}</span>
-									</li>
-								</ul>
-
-								<!-- done task list --> 
-								<ul ng-init="findDone()" id="task-list">
-									<li draggable='true' ng-repeat="task in done">
-										<span>{{task.title}}</span>
-									</li>
-								</ul>
+								<div class="span3">
+									<!-- todo task list --> 
+									<ul ng-init="findTodo()" id="task-list">
+										<li draggable='true' ng-repeat="task in todo">
+											<span>{{task.title}}</span>
+										</li>
+									</ul>
+								</div>
+								
+								<div class="span3">
+									<!-- doing task list --> 
+									<ul ng-init="findDoing()" id="task-list">
+										<li draggable='true' ng-repeat="task in doing">
+											<span>{{task.title}}</span>
+										</li>
+									</ul>
+								</div>
+								
+								<div class="span3">
+									<!-- done task list --> 
+									<ul ng-init="findDone()" id="task-list">
+										<li draggable='true' ng-repeat="task in done">
+											<span>{{task.title}}</span>
+										</li>
+									</ul>
+								</div>
 
 							</section>
 						</section>
@@ -40,4 +46,4 @@
 			</section>
 		</section>
 	</aside>
-</section>
+</section>	
