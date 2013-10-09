@@ -86,7 +86,7 @@ angular.module('droppable', []).directive("droppable", function(){
 
 						scope.fnOnDrop(jsonData); // this will be called on the directive's parent scope
 					}
-					jElm.removeClass("over"); // for removing highlighting effect on droppable object
+					jElm.removeClass("sortable-placeholder"); // for removing highlighting effect on droppable object
 
 					return false;
 				}

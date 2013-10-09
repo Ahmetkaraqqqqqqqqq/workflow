@@ -6,3 +6,6 @@
 	cursor: move;
 	list-style: none;
 }
+.move .panel{
+	margin-bottom: 5px;
+}
