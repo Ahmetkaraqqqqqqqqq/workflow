@@ -12,7 +12,8 @@ function AppCtrl ($rootScope, $scope, $location, Task){
  
     //for handling the data as passed after the object is dropped
     $scope.fnOnDrop = function(jsonData){
-        console.log('vespa', jsonData)
+        var obj = JSON.parse(jsonData.dataId);
+        console.warn(obj.id);
     };
 
 	$scope.add = function(params){
