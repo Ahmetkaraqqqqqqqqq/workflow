@@ -1,8 +1,8 @@
 {
-  "name": "Newsource",
+  "name": "Arrange",
   "version": "1.0.0",
-  "homepage": "https://github.com/rapidoware/globo-newsource",
-  "description": "Projeto newsource",
+  "homepage": "https://github.com/paulohp/arrange",
+  "description": "Projeto Arrange",
   "license": "MIT",
   "ignore": [
     "**/.*",

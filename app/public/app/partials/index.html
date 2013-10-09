@@ -11,31 +11,31 @@
 					<aside>
 						<section class="vbox">
 							<section class="wrapper">
-								<div class="span3">
+								<div class="col-lg-4">
 									<header>Todo</header>
 									<!-- todo task list --> 
 									<ul data-droppable="" ng-init="findTodo()" id="task-list">
-										<li class="move" data-draggable="true" draggable='true' ng-repeat="task in todo" data-dataId="{{task}}" >
+										<li class="move list-group-item" data-draggable="true" draggable='true' ng-repeat="task in todo" data-dataId="{{task}}" >
 											<span>{{task.title}}</span>
 										</li>
 									</ul>
 								</div>
 								
-								<div class="span3">
+								<div class="col-lg-4">
 									<header>Doing</header>
 									<!-- doing task list --> 
 									<ul data-droppable="" ng-init="findDoing()" id="task-list">
-										<li class="move" data-dataId="{{task}}" data-draggable="true" ng-repeat="task in doing">
+										<li class="move list-group-item" data-dataId="{{task}}" data-draggable="true" ng-repeat="task in doing">
 											<span>{{task.title}}</span>
 										</li>
 									</ul>
 								</div>
 								
-								<div class="span3">
+								<div class="col-lg-4">
 									<header>Done</header>
 									<!-- done task list --> 
 									<ul data-droppable="" ng-init="findDone()" id="task-list">
-										<li class="move" data-dataId="{{task}}" data-draggable="true" draggable='true' ng-repeat="task in done">
+										<li class="move list-group-item" data-dataId="{{task}}" data-draggable="true" draggable='true' ng-repeat="task in done">
 											<span>{{task.title}}</span>
 										</li>
 									</ul>

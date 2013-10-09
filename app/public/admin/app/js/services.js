@@ -4,7 +4,7 @@
 
 var module = angular.module('admin_nsApp.services', []).
 value('version', '0.1').
-value('name', 'Globo Newsource');
+value('name', 'Arrange');
 
 
 angular.module('admin_nsApp.services.user', []).factory('User', ['$http', function ($http)
