@@ -61,17 +61,17 @@ angular.module('droppable', []).directive("droppable", function(){
 
 			var dnD = {
 				handleDropleave : function(e){
-					jElm.removeClass("over"); // for removing highlighting effect on droppable object
+					jElm.removeClass("sortable-placeholder"); // for removing highlighting effect on droppable object
 				},
 
 				handleDragEnter : function(e) {
 					if (e.preventDefault) e.preventDefault(); // allows us to drop
-					jElm.addClass("over"); // for giving highlighting effect on droppable object
+					jElm.addClass("sortable-placeholder"); // for giving highlighting effect on droppable object
 				},
 
 				handleDragOver : function(e) {
 					if (e.preventDefault) e.preventDefault(); // allows us to drop
-					jElm.addClass("over"); // for giving highlighting effect on droppable object
+					jElm.addClass("sortable-placeholder"); // for giving highlighting effect on droppable object
 					return false;
 			  	},
 
