@@ -28,8 +28,8 @@ angular.module('draggable', []).directive("draggable", function(){
  
         //creating an object for transferring data onto the droppable object
         var dataInfo = {
-            dataId:e.currentTarget.getAttribute("data-Id"),
-            extraData:e.currentTarget.getAttribute("data-Id")
+            dataId:e.currentTarget.getAttribute("data-dataId"),
+            extraData:"this is a sample data"
         };
  
         //payload from the draggable object
