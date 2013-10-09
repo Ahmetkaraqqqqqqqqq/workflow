@@ -14,8 +14,8 @@
 								<div class="span3">
 									<header>Todo</header>
 									<!-- todo task list --> 
-									<ul ng-init="findTodo()" id="task-list">
-										<li draggable='true' ng-repeat="task in todo">
+									<ul data-droppable="" ng-init="findTodo()" id="task-list">
+										<li data-draggable="true" draggable='true' ng-repeat="task in todo" data-dataId="{{someData}}" >
 											<span>{{task.title}}</span>
 										</li>
 									</ul>
@@ -24,8 +24,8 @@
 								<div class="span3">
 									<header>Doing</header>
 									<!-- doing task list --> 
-									<ul ng-init="findDoing()" id="task-list">
-										<li draggable='true' ng-repeat="task in doing">
+									<ul data-droppable="" ng-init="findDoing()" id="task-list">
+										<li data-dataId="{{someData}}" data-draggable="true" ng-repeat="task in doing">
 											<span>{{task.title}}</span>
 										</li>
 									</ul>
@@ -34,8 +34,8 @@
 								<div class="span3">
 									<header>Done</header>
 									<!-- done task list --> 
-									<ul ng-init="findDone()" id="task-list">
-										<li draggable='true' ng-repeat="task in done">
+									<ul data-droppable="" ng-init="findDone()" id="task-list">
+										<li data-dataId="{{someData}}" data-draggable="true" draggable='true' ng-repeat="task in done">
 											<span>{{task.title}}</span>
 										</li>
 									</ul>

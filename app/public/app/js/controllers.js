@@ -8,6 +8,13 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 	$scope.doing = {};
 	$scope.done = {};
 
+	$scope.someData = "Data to be dragged";
+ 
+    //for handling the data as passed after the object is dropped
+    $scope.fnOnDrop = function(jsonData){
+        console.log('vespa', jsonData)
+    };
+
 	$scope.add = function(params){
 		console.log("I'm here", params);
 		Task.add($scope.form, function(task){
