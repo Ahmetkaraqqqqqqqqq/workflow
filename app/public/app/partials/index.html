@@ -12,6 +12,7 @@
 						<section class="vbox">
 							<section class="wrapper">
 								<div class="span3">
+									<header>Todo</header>
 									<!-- todo task list --> 
 									<ul ng-init="findTodo()" id="task-list">
 										<li draggable='true' ng-repeat="task in todo">
@@ -21,6 +22,7 @@
 								</div>
 								
 								<div class="span3">
+									<header>Doing</header>
 									<!-- doing task list --> 
 									<ul ng-init="findDoing()" id="task-list">
 										<li draggable='true' ng-repeat="task in doing">
@@ -30,6 +32,7 @@
 								</div>
 								
 								<div class="span3">
+									<header>Done</header>
 									<!-- done task list --> 
 									<ul ng-init="findDone()" id="task-list">
 										<li draggable='true' ng-repeat="task in done">
