@@ -26,7 +26,8 @@ app.get('/a/tasks', task.all);
 app.get('/a/task', task.finder);
 
 var user = require('./routes/user');
-app.post('/a/register', user.add);
+app.post('/a/users/singup', user.add);
+app.post('/a/users/singin', user.login);
 
 app.all('/', function (req, res)
 {	

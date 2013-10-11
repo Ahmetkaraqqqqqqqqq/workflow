@@ -47,3 +47,34 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 	}
 	return Task;
 }]);
+
+angular.module('nsApp.services.user', []).factory('User', ['$http', function ($http)
+{
+	var User = {};
+
+	User.add = function(params, callback){
+		$http.post('/a/users/singup', params).success(function (data){
+			if (data.error === undefined) {
+				if (typeof callback == 'function') {
+					callback(data);
+				}
+			} else{
+				callback({});
+			}
+		});
+	}
+
+	User.login = function(params, callback){
+		$http.post('/a/users/singin', params).success(function (data){
+			if (data.error === undefined) {
+				if (typeof callback == 'function') {
+					callback(data);
+				}
+			} else{
+				callback({});
+			}
+		});
+	}
+
+	return User;
+}]);

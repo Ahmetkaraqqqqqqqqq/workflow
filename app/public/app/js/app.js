@@ -15,6 +15,15 @@ angular.module('nsApp', [
 			templateUrl: 'partials/add_task.html'
 		});
 
+		$routeProvider.when('/users/singup', {
+			templateUrl: 'partials/singup.html'
+		});
+
+
+		$routeProvider.when('/users/singin', {
+			templateUrl: 'partials/singin.html'
+		});
+
 		$routeProvider.otherwise({
 			redirectTo: '/'
 		});

@@ -7,3 +7,11 @@ exports.add = function(req, res){
 		res.json(user);
 	});
 }
+
+exports.login = function(req, res){
+	var params = req.body
+	console.log(params)
+	controller.user.login(params, function(user){
+		res.json(user);
+	});
+}
