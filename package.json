@@ -16,7 +16,9 @@
     "request": "2.27.0",
     "nodemailer": "*",
     "locale": "0.0.10",
-    "nodetime": "~0.8.13"
+    "nodetime": "~0.8.13",
+    "passport": "~0.1.17",
+    "connect-ensure-login": "~0.1.1"
   },
   "devDependencies": {
     "mocha": "1.12",
