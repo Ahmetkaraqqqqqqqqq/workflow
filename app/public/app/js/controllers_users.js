@@ -1,10 +1,10 @@
 'use strict';
 
 function UserCtrl ($rootScope, $scope, $location, User){
-	$scope.form = {};
-
-	$scope.someData = "Data to be dragged";
+    $scope.form = {};
  
+	$scope.greeting = 'Funciona cacete!';
+
     $scope.add = function(params){
 		console.log("I'm here", params);
 		User.add($scope.form, function(user){
@@ -12,11 +12,12 @@ function UserCtrl ($rootScope, $scope, $location, User){
 		});
 	}
 
-	$scope.login = function(params){
-		console.log("I'm here", params);
-		User.login($scope.form, function(user){
+	$scope.singin = function(params){
+		console.log("I'm here - scrope.singin on controllers_users.js", params);
+		User.singin($scope.form, function(user){
 		  	$location.path('/');
 		});
 	}
 }
+
 UserCtrl.$inject = ['$rootScope', '$scope', '$location', 'User'];

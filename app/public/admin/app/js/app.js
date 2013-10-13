@@ -35,6 +35,11 @@ angular.module('admin_nsApp', [
 			controller: 'UserCtrl'
 		});
 
+		$routeProvider.when('/users/account', {
+			templateUrl: 'partials/profile.html',
+			controller: 'UserCtrl'
+		});
+
 		$routeProvider.when('/users/:id', {
 			templateUrl: 'partials/edit_user.html',
 			controller: 'UserCtrl'

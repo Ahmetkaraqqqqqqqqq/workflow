@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="nsApp">>
+<html lang="en" ng-app="nsApp">
 	<head> 
 		<meta charset="utf-8"> 
 		<title>Web Application | todo</title> 
@@ -33,7 +33,7 @@
 							<div class="checkbox"> 
 								<label><input type="checkbox"> Agree the <a href="#">terms and policy</a> </label> 
 							</div> 
-							<button type="submit" class="btn btn-info">Sign up</button> 
+							<button ng-click="add(form)" class="btn btn-info">Sign up</button> 
 							<div class="line line-dashed"></div> 
 							<p class="text-muted text-center"><small>Already have an account?</small></p> 
 							<a href="#/users/singin" class="btn btn-white btn-block">Sign in</a> 

@@ -4,7 +4,9 @@
 
 var express = require('express')
   , path = require('path')
-  , chromelogger = require('chromelogger');
+  , chromelogger = require('chromelogger')
+  , passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 
 var app = module.exports = express();
 
@@ -19,6 +21,8 @@ app.use(express.cookieParser('1a23sf5asdf2a1dfs2a3d4sf'));
 app.use(express.session());
 app.use(chromelogger.middleware);
 app.use(app.router);
+app.use(passport.initialize());
+app.use(passport.session());
 
 var task = require('./routes/task');
 app.post('/a/tasks/new', task.add);
@@ -27,9 +31,28 @@ app.get('/a/task', task.finder);
 
 var user = require('./routes/user');
 app.post('/a/users/singup', user.add);
-app.post('/a/users/singin', user.login);
+app.post('/a/users/singin/auth', user.singin);
+app.get('/a/users/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+app.get('/a/users/account', ensureAuthenticated, function(req, res){
+  console.log('passou pelo acount');
+  res.render('account', { user: req.user });
+});
 
 app.all('/', function (req, res)
 {	
 	res.redirect("/app/");
 });
+
+// Simple route middleware to ensure user is authenticated.
+//   Use this route middleware on any resource that needs to be protected.  If
+//   the request is authenticated (typically via a persistent login session),
+//   the request will proceed.  Otherwise, the user will be redirected to the
+//   login page.
+function ensureAuthenticated(req, res, next) {
+	console.log('passou pelo ensureAuthenticated');
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/a/users/singin')
+}

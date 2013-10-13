@@ -10,6 +10,7 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	var User = {};
 
 	User.add = function(params, callback){
+		console.log("User.singup on services_users.js");
 		$http.post('/a/users/singup', params).success(function (data){
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
@@ -21,16 +22,21 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 		});
 	}
 
-	User.login = function(params, callback){
-		$http.post('/a/users/singin', params).success(function (data){
-			if (data.error === undefined) {
-				if (typeof callback == 'function') {
-					callback(data);
+	User.singin = function(params, callback){
+		console.log("User.singin on services_users.js");
+		$http.post('/a/users/singin/auth', params)
+			 .success(function (data){
+				if (data.error === undefined) {
+					if (typeof callback == 'function') {
+						callback(data);
+					}
+				} else{
+					callback({});
 				}
-			} else{
-				callback({});
-			}
-		});
+			 })
+			 .error(function (data){
+			 	console.log("erro ao tentar autenticar");
+			 });
 	}
 
 	return User;
