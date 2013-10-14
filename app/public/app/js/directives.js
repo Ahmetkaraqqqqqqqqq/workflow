@@ -39,6 +39,7 @@ angular.module('draggable', []).directive("draggable", function(){
  
     var handleDragEnd = function(e){
         this.style.opacity = "1";
+        console.log(e)
         e.preventDefault();
     };
  

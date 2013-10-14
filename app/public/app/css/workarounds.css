@@ -9,3 +9,6 @@
 .move .panel{
 	margin-bottom: 5px;
 }
+.task-board ul{
+	padding: 0;
+}
