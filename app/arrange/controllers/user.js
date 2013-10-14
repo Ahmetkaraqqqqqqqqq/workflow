@@ -32,21 +32,21 @@ passport.use(new LocalStrategy(
 
 exports.login = function(params, callback){
   console.log("I'm here - login on users.js", params);
-  passport.authenticate('local', { failureRedirect: '/a/users/singin' },
-    function(req, res) {
-      console.log("entrou no metodo de logar");
-      res.redirect('/');
-    });
-  // console.log("passou do metodo de logar");
-  // models.User.find({ where: ["email = '"+params.email+"' AND password = '"+params.password+"'"]})
-  //     .success(function(user) {
-  //         console.log('pesquisa login feita!');
-  //         callback(user);
-  //     })
-  //     .error(function(user) {
-  //       console.log('erro ao logar');
-  //       callback(user);
-  //     });
+  // passport.authenticate('local', { failureRedirect: '/a/users/singin' },
+  //   function(req, res) {
+  //     console.log("entrou no metodo de logar");
+  //     res.redirect('/');
+  //   });
+  console.log("passou do metodo de logar");
+  models.User.find({ where: ["email = '"+params.email+"' AND password = '"+params.password+"'"]})
+      .success(function(user) {
+          console.log('pesquisa login feita!');
+          callback(user);
+      })
+      .error(function(user) {
+        console.log('erro ao logar');
+        callback(user);
+      });
 }
 
 exports.add = function(params, callback){
