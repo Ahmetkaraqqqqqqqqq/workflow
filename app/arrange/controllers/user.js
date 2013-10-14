@@ -4,49 +4,49 @@ var models 	 = app.get('arrange-models')
   , util     = require('util')
   , LocalStrategy = require('passport-local').Strategy;
     
-// passport.serializeUser(function(user, done) {
-//   done(null, user);
-// });
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
-// passport.deserializeUser(function(id, done) {
-//   User.findById(id, function (err, user) {
-//     done(err, user);
-//   });
-// });
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
+});
 
-// passport.use(new LocalStrategy(
-//   function(email, password, done) {
-//     console.log("Tentando logar...");  
+passport.use(new LocalStrategy(
+  function(email, password, done) {
+    console.log("Tentando logar...");  
   
-//     models.User.find({ where: {email: params.email, password: params.password} })
-//         .success(function(user) {
-//           return callback(user);
-//         })
-//         .error(function(user) {
-//           if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
-//           if (user.password != password) { return done(null, false, { message: 'Invalid password' }); }
-//           callback(user);
-//         });
-//   }
-// ));
+    models.User.find({ where: {email: params.email, password: params.password} })
+        .success(function(user) {
+          return callback(user);
+        })
+        .error(function(user) {
+          if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+          if (user.password != password) { return done(null, false, { message: 'Invalid password' }); }
+          callback(user);
+        });
+  }
+));
 
 exports.login = function(params, callback){
   console.log("I'm here - login on users.js", params);
-  // passport.authenticate('local', { failureRedirect: '/a/users/singin' },
-  //   function(req, res) {
-  //     console.log("entrou no metodo de logar");
-  //     res.redirect('/');
-  //   });
+  passport.authenticate('local', { failureRedirect: '/a/users/singin' },
+    function(req, res) {
+      console.log("entrou no metodo de logar");
+      res.redirect('/');
+    });
   // console.log("passou do metodo de logar");
-  models.User.find({ where: ["email = '"+params.email+"' AND password = '"+params.password+"'"]})
-      .success(function(user) {
-          console.log('pesquisa login feita!');
-          callback(user);
-      })
-      .error(function(user) {
-        console.log('erro ao logar');
-        callback(user);
-      });
+  // models.User.find({ where: ["email = '"+params.email+"' AND password = '"+params.password+"'"]})
+  //     .success(function(user) {
+  //         console.log('pesquisa login feita!');
+  //         callback(user);
+  //     })
+  //     .error(function(user) {
+  //       console.log('erro ao logar');
+  //       callback(user);
+  //     });
 }
 
 exports.add = function(params, callback){

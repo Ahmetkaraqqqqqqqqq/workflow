@@ -25,7 +25,8 @@ angular.module('nsApp', [
 		});
 
 		$routeProvider.when('/users/singin', {
-			templateUrl: 'partials/singin.html'
+			templateUrl: 'partials/singin.html',
+			controller: UserCtrl
 		});
 
 		$routeProvider.otherwise({
