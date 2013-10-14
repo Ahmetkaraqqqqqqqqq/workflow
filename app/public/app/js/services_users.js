@@ -22,9 +22,9 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 		});
 	}
 
-	User.singin = function(params, callback){
-		console.log("User.singin on services_users.js");
-		$http.post('/a/users/singin/auth', params)
+	User.login = function(params, callback){
+		console.log("User.login on services_users.js");
+		$http.post('/a/users/login', params)
 			 .success(function (data){
 				if (data.error === undefined) {
 					if (typeof callback == 'function') {

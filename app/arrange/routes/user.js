@@ -8,10 +8,10 @@ exports.add = function(req, res){
 	});
 }
 
-exports.singin = function(req, res){
+exports.login = function(req, res){
 	var params = req.body
 	console.log(params)
-	controller.user.singin(params, function(user){
+	controller.user.login(params, function(user){
 		res.json(user);
 	});
 }

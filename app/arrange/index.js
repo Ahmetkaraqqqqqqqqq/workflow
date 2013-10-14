@@ -20,9 +20,9 @@ app.use(express.methodOverride());
 app.use(express.cookieParser('1a23sf5asdf2a1dfs2a3d4sf'));
 app.use(express.session());
 app.use(chromelogger.middleware);
-app.use(app.router);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(app.router);
 
 var task = require('./routes/task');
 app.post('/a/tasks/new', task.add);
@@ -31,14 +31,10 @@ app.get('/a/task', task.finder);
 
 var user = require('./routes/user');
 app.post('/a/users/singup', user.add);
-app.post('/a/users/singin/auth', user.singin);
+app.post('/a/users/login', user.login);
 app.get('/a/users/logout', function(req, res){
   req.logout();
   res.redirect('/');
-});
-app.get('/a/users/account', ensureAuthenticated, function(req, res){
-  console.log('passou pelo acount');
-  res.render('account', { user: req.user });
 });
 
 app.all('/', function (req, res)
