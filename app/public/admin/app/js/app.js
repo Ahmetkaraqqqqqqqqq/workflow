@@ -25,8 +25,18 @@ angular.module('admin_nsApp', [
 			controller: 'UserCtrl'
 		});
 
-		$routeProvider.when('/users/add', {
-			templateUrl: 'partials/add_user.html',
+		$routeProvider.when('/users/singin', {
+			templateUrl: 'partials/singin.html',
+			controller: 'UserCtrl'
+		});
+
+		$routeProvider.when('/users/singup', {
+			templateUrl: 'partials/singup.html',
+			controller: 'UserCtrl'
+		});
+
+		$routeProvider.when('/users/account', {
+			templateUrl: 'partials/profile.html',
 			controller: 'UserCtrl'
 		});
 

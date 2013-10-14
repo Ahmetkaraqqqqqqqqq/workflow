@@ -17,6 +17,23 @@ angular.module('new_task', []).directive('new_task', function()
 	};
 });
 
+angular.module('new_user', []).directive('new_user', function()
+{
+	return {
+		restrict : 'E',
+		templateUrl : 'partials/singup.html',
+		scope : false
+	};
+});
+
+angular.module('login_user', []).directive('login_user', function()
+{
+	return {
+		restrict : 'E',
+		templateUrl : 'partials/singin.html',
+		scope : false
+	};
+});
 
 angular.module('draggable', []).directive("draggable", function(){
  
