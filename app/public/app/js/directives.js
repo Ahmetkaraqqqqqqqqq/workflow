@@ -98,6 +98,8 @@ angular.module('droppable', []).directive("droppable", function(){
 
 					var jsonDataStr = e.originalEvent.dataTransfer.getData('text/plain');
 
+					console.log("olha a data", jsonDataStr);
+
 					//console.log("recieved ", jsonData);
 					if(jsonDataStr){
 						var jsonData = angular.fromJson(jsonDataStr);
