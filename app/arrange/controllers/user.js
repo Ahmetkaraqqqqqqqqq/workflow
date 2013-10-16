@@ -45,7 +45,7 @@ exports.login = function(params, callback){
       })
       .error(function(user) {
         console.log('erro ao logar');
-        callback(user);
+        callback('error' : 'erro ao logar');
       });
 }
 

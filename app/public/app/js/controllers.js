@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-function AppCtrl ($rootScope, $scope, $location, Task){
+function AppCtrl ($rootScope, $scope, $location, Task, User){
 	$scope.form = {};
 	$scope.tasks = {};
 	$scope.todo = {};
@@ -9,7 +9,7 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 	$scope.done = {};
 
 	$scope.someData = "Data to be dragged";
- 
+
     //for handling the data as passed after the object is dropped
     $scope.fnOnDrop = function(jsonData){
         var obj = JSON.parse(jsonData.dataId);
@@ -65,4 +65,4 @@ function AppCtrl ($rootScope, $scope, $location, Task){
 		});
 	}
 }
-AppCtrl.$inject = ['$rootScope', '$scope', '$location', 'Task'];
+AppCtrl.$inject = ['$rootScope', '$scope', '$location', 'Task', 'User'];
