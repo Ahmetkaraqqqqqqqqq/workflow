@@ -17,7 +17,8 @@ angular.module('nsApp', [
 		});
 
 		$routeProvider.when('/users/singup', {
-			templateUrl: 'partials/singup.html'
+			templateUrl: 'partials/singup.html',
+			controller: 'UserCtrl'
 		});
 
 		$routeProvider.when('/users/account', {
@@ -26,7 +27,7 @@ angular.module('nsApp', [
 
 		$routeProvider.when('/users/singin', {
 			templateUrl: 'partials/singin.html',
-			controller: UserCtrl
+			controller: 'UserCtrl'
 		});
 
 		$routeProvider.otherwise({

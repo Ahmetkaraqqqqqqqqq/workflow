@@ -21,7 +21,7 @@ function UserCtrl ($rootScope, $scope, $location, User){
 		User.login($scope.form, function(user){
 			console.log("login deu certo? - ", user);
 			if(user == "null"){
-				console.log("true");
+				console.log("true", user);
 				$scope.mensagem = "Email ou senha inválido!";
 				$scope.mostrar_mensagem = true;
 				$location.path('/a/users/singin');
