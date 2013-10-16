@@ -97,8 +97,8 @@ angular.module('droppable', []).directive("droppable", function(){
 					if (e.stopPropagation) e.stopPropagation(); // stops the browser from redirecting..
 
 					var jsonDataStr = e.originalEvent.dataTransfer.getData('text/plain');
-
-					console.log("olha a data", jsonDataStr);
+					var jsonfy = JSON.parse(jsonDataStr);
+					console.log("olha a data", jsonfy.dataId);
 
 					//console.log("recieved ", jsonData);
 					if(jsonDataStr){

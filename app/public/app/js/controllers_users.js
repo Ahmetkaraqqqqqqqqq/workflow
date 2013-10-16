@@ -20,13 +20,13 @@ function UserCtrl ($rootScope, $scope, $location, User){
 		console.log("I'm here - scrope.login on controllers_users.js", params);
 		User.login($scope.form, function(user){
 			console.log("login deu certo? - ", user);
-			if(user == "null"){
-				console.log("true", user);
+			if(user == null){
+				console.log("true");
 				$scope.mensagem = "Email ou senha inválido!";
 				$scope.mostrar_mensagem = true;
 				$location.path('/a/users/singin');
 			}else{
-				console.log("false");
+				console.log("false", user);
 				$scope.imagem_gravatar = get_gravatar(user.email);
 				$scope.mostrar_mensagem = false;
 		  		$location.path('/');
