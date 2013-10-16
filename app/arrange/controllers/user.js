@@ -45,7 +45,7 @@ exports.login = function(params, callback){
       })
       .error(function(user) {
         console.log('erro ao logar');
-        callback('error' : 'erro ao logar');
+        callback({'error:':'Usuario inexistente!'});
       });
 }
 
