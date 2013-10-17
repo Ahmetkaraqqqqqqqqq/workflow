@@ -34,7 +34,7 @@ app.post('/a/users/singup', user.add);
 app.post('/a/users/login', user.login);
 app.get('/a/users/logout', function(req, res){
   req.logout();
-  res.redirect('/');
+  res.redirect('/a/users/singin');
 });
 
 app.all('/', function (req, res)

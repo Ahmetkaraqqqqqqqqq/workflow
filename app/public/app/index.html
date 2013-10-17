@@ -15,8 +15,8 @@
 <body ng-controller="AppCtrl">
 
     <section class="hbox stretch">
-        <!-- .aside -->
-        <aside class="bg-dark aside-md" id="nav" ng-show="!user.token">
+        <!-- .aside --> 
+        <aside class="bg-dark aside-md" id="nav" >
             <section class="vbox">
                 <header class="nav-bar dker">
                     <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="body"> <i class="icon-reorder"></i> 
@@ -34,21 +34,21 @@
                     <div class="lt nav-user hidden-xs pos-rlt">
                         <div class="nav-avatar pos-rlt">
                             <a href="#" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
-                                <img ng-src="{{ imagem_gravatar }}" alt="" class=""> <span class="caret caret-white"></span> 
+                                <img src="{{imagem_gravatar}}" alt="" class=""> <span class="caret caret-white"></span> 
                             </a>
                             <ul class="dropdown-menu m-t-sm animated fadeInLeft">
                                 <span class="arrow top"></span> 
-                                <li> <a href="#">Settings</a> 
+                                <li style="display:none"> <a href="#">Settings</a> 
                                 </li>
-                                <li> <a href="profile.html">Profile</a> 
+                                <li> <a href="#/users/account">Profile</a> 
                                 </li>
                                 <li>
                                     <a href="#"> <span class="badge bg-danger pull-right">3</span> Notifications</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li> <a href="docs.html">Help</a> 
+                                <li style="display:none"> <a href="docs.html">Help</a> 
                                 </li>
-                                <li> <a href="signin.html">Logout</a> 
+                                <li> <a href="#" ng-click="logout()">Logout</a> 
                                 </li>
                             </ul>
                             <div class="visible-xs m-t m-b">
@@ -65,7 +65,7 @@
                                     <header class="panel-heading"> <strong>You have <span class="count-n">2</span> notifications</strong> 
                                     </header>
                                     <div class="list-group">
-                                        <a href="#" class="media list-group-item"> <span class="pull-left thumb-sm"> <img ng-src="{{ imagem_gravatar }}" alt="John said" class="img-circle"> </span>  <span class="media-body block m-b-none"> Use awesome animate.css<br> <small class="text-muted">28 Aug 13</small> </span> 
+                                        <a href="#" class="media list-group-item"> <span class="pull-left thumb-sm"> <img src="{{imagem_gravatar}}" alt="John said" class="img-circle"> </span>  <span class="media-body block m-b-none"> Use awesome animate.css<br> <small class="text-muted">28 Aug 13</small> </span> 
                                         </a>
                                         <a href="#" class="media list-group-item"> <span class="media-body block m-b-none"> 1.0 initial released<br> <small class="text-muted">27 Aug 13</small> </span> 
                                         </a>
@@ -165,7 +165,6 @@
     <script src="js/services.js"></script>
     <script src="js/services_users.js"></script>
     <script src="js/controllers.js"></script>
-    <script src="js/controllers_users.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/directives.js"></script>
 

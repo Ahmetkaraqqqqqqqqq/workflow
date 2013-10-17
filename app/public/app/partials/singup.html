@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="css/font.css" cache="false"> 
 		<!--[if lt IE 9]> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/html5.js" cache="false"></script> <script src="js/ie/fix.js" cache="false"></script> <![endif]-->
 	</head>	
-	<body ng-controller="UserCtrl">
+	<body ng-controller="AppCtrl">
  
 		<section id="content" class="m-t-lg wrapper-md animated fadeInDown"> 
 			<a class="nav-brand" href="index.html">todo</a> 
@@ -33,7 +33,7 @@
 							<div class="checkbox"> 
 								<label><input type="checkbox"> Agree the <a href="#">terms and policy</a> </label> 
 							</div> 
-							<button ng-click="add(form)" class="btn btn-info">Sign up</button> 
+							<button ng-click="addUser(form)" class="btn btn-info">Sign up</button> 
 							<div class="line line-dashed"></div> 
 							<p class="text-muted text-center"><small>Already have an account?</small></p> 
 							<a href="#/users/singin" class="btn btn-white btn-block">Sign in</a> 

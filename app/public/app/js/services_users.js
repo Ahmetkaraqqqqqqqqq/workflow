@@ -39,5 +39,22 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 			 });
 	}
 
+	User.logout = function(params, callback){
+		console.log("User.logout on services_users.js");
+		$http.get('/a/users/logout', params)
+			 .success(function (data){
+				if (data.error === undefined) {
+					if (typeof callback == 'function') {
+						callback(data);
+					}
+				} else{
+					callback({});
+				}
+			 })
+			 .error(function (data){
+			 	console.log("erro ao tentar efetuar o logout");
+			 });
+	}
+
 	return User;
 }]);

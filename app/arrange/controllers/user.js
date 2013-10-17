@@ -30,7 +30,7 @@ passport.use(new LocalStrategy(
   }
 ));
 
-exports.login = function(params, callback){
+exports.login = function(params, callback, req){
   console.log("I'm here - login on users.js", params);
   // passport.authenticate('local', { failureRedirect: '/a/users/singin' },
   //   function(req, res) {
