@@ -10,8 +10,8 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	var User = {};
 
 	User.add = function(params, callback){
-		console.log("User.singup on services_users.js");
-		$http.post('/a/users/singup', params).success(function (data){
+		console.log("User.signup on services_users.js");
+		$http.post('/a/users/signup', params).success(function (data){
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
 					callback(data);
@@ -43,6 +43,7 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 		console.log("User.logout on services_users.js");
 		$http.get('/a/users/logout', params)
 			 .success(function (data){
+			 	console.log("logout efetuado com sucesso");
 				if (data.error === undefined) {
 					if (typeof callback == 'function') {
 						callback(data);

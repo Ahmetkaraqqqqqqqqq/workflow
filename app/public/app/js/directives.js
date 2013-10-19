@@ -21,7 +21,7 @@ angular.module('new_user', []).directive('new_user', function()
 {
 	return {
 		restrict : 'E',
-		templateUrl : 'partials/singup.html',
+		templateUrl : 'partials/signup.html',
 		scope : false
 	};
 });

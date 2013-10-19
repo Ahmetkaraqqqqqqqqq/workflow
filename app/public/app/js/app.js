@@ -16,8 +16,8 @@ angular.module('nsApp', [
 			templateUrl: 'partials/add_task.html'
 		});
 
-		$routeProvider.when('/users/singup', {
-			templateUrl: 'partials/singup.html',
+		$routeProvider.when('/users/signup', {
+			templateUrl: 'partials/signup.html',
 			
 		});
 

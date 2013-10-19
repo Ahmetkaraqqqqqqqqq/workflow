@@ -86,19 +86,19 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 
 	$scope.login = function(params){
 		User.login($scope.form, function(user){
-			if(user == "null"){
-				console.log("logado com ",user.email);
-				$scope.user = null;
-				$scope.mensagem = "Email ou senha inválido!";
-				$scope.mostrar_mensagem = true;
-				$location.path('/users/singin');
-			}else{
-				console.log("logado com ",user.email);
+			console.log("Usuario logado: ", user);
+			if(user){
+				console.log("logado com ",user);
 				$scope.user = user;
 				$scope.imagem_gravatar = get_gravatar(user.email);
 				$scope.mostrar_mensagem = false;
 		  		$location.path('/');
-
+			}else{
+				console.log("erro ao logar");
+				$scope.user = null;
+				$scope.mensagem = "Email ou senha inválido!";
+				$scope.mostrar_mensagem = true;
+				$location.path('/users/singin');
 			}
 		});
 	}
@@ -123,6 +123,16 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 	  	}
 	  	console.log("gravatar = ", imagem);
 	    return imagem;
+	}
+
+	function userExist(req, res, next) {
+	    User.count({ email: req.body.email }, function (err, count) {
+	        if (count === 0) {
+	            next();
+	        } else {
+	            res.redirect("/#/users/signup");
+	        }
+	    });
 	}
 }
 AppCtrl.$inject = ['$rootScope', '$scope', '$location', 'Task', 'User'];
