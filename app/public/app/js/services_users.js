@@ -26,6 +26,7 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 		console.log("User.login on services_users.js");
 		$http.post('/a/users/login', params)
 			 .success(function (data){
+			 	// console.log("usuario on service = ",data);
 				if (data.error === undefined) {
 					if (typeof callback == 'function') {
 						callback(data);
