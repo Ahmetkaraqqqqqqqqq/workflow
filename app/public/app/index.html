@@ -12,15 +12,15 @@
     <!--[if lt IE 9]> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/html5.js" cache="false"></script> <script src="js/ie/fix.js" cache="false"></script> <![endif]-->
 </head>
 
-<body ng-controller="AppCtrl">
+<body ng-controller="AppCtrl" ng-init="getUser()">
 
     <section class="hbox stretch">
-        <!-- .aside --> 
-        <aside class="bg-dark aside-md" id="nav" >
+        <!-- .aside -->
+        <aside class="bg-dark aside-md" id="nav"  ng-show="user != null">
             <section class="vbox">
                 <header class="nav-bar dker">
                     <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="body"> <i class="icon-reorder"></i> 
-                    </a> <a href="#" class="nav-brand" data-toggle="fullscreen">todo</a> 
+                    </a> <a href="#" class="nav-brand" data-toggle="fullscreen">todo </a> 
                     <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user"> <i class="icon-comment-alt"></i> 
                     </a>
                 </header>
@@ -31,7 +31,7 @@
                     </a>
                 </footer>
                 <section>
-                    <div class="lt nav-user hidden-xs pos-rlt">
+                    <div class="lt nav-user hidden-xs pos-rlt" ng-init="get_gravatar()">
                         <div class="nav-avatar pos-rlt">
                             <a href="#" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
                                 <img src="{{ imagem_gravatar }}" alt="" class=""> <span class="caret caret-white"></span> 

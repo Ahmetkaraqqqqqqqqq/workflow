@@ -10,7 +10,6 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	var User = {};
 
 	User.add = function(params, callback){
-		console.log("User.signup on services_users.js");
 		$http.post('/a/users/signup', params).success(function (data){
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
@@ -23,10 +22,8 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	}
 
 	User.login = function(params, callback){
-		console.log("User.login on services_users.js");
 		$http.post('/a/users/login', params)
 			 .success(function (data){
-			 	// console.log("usuario on service = ",data);
 				if (data.error === undefined) {
 					if (typeof callback == 'function') {
 						callback(data);
@@ -41,10 +38,8 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	}
 
 	User.logout = function(params, callback){
-		console.log("User.logout on services_users.js");
 		$http.get('/a/users/logout', params)
 			 .success(function (data){
-			 	console.log("logout efetuado com sucesso");
 				if (data.error === undefined) {
 					if (typeof callback == 'function') {
 						callback(data);
@@ -55,6 +50,16 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 			 })
 			 .error(function (data){
 			 	console.log("erro ao tentar efetuar o logout");
+			 });
+	}
+
+	User.getUser = function(params, callback){
+		$http.get('/a/users/getUser', params, callback)
+			 .success(function (data){
+			 	callback(data);
+			 })
+			 .error(function (data){
+			 	callback(null);
 			 });
 	}
 
