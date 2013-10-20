@@ -52,8 +52,8 @@
                                 </li>
                             </ul>
                             <div class="visible-xs m-t m-b">
-                                <a href="#" class="h3">John.Smith</a> 
-                                <p><i class="icon-map-marker"></i> London, UK</p>
+                                <a href="#" class="h3">{{user.name}}</a> 
+                                <p><i class="icon-map-marker"></i> {{user.email}} </p>
                             </div>
                         </div>
                         <div class="nav-msg">
@@ -146,8 +146,8 @@
         </aside>
         <!-- /.aside -->
         <!-- .vbox -->
-        <section id="content">
-            <div ng-view></div>
+        <section id="content" ng-view>
+            
         </section>
         <!-- /.vbox -->
     </section>

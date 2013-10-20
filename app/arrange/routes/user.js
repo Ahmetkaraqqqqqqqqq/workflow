@@ -8,6 +8,14 @@ exports.add = function(req, res){
 	});
 }
 
+exports.updateUser = function(req, res){
+	var params = req.body
+	controller.user.updateUser(params, function(user){
+		console.log("usuario atualizado = ", user);
+		res.json(user);
+	});
+}
+
 exports.login = function(req, res){
 	var params = req.body
 	console.log(params)

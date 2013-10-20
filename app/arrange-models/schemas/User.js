@@ -7,6 +7,8 @@ module.exports = function(sequelize) {
 		id:             		{ type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true}, 
 		email:     		    	{ type: Sequelize.STRING,  allowNull: false},
 		name:      				{ type: Sequelize.STRING,  allowNull: false},
+		aboutme:      			{ type: Sequelize.STRING,  allowNull: false},
+		position:      			{ type: Sequelize.STRING,  allowNull: false},
 		password:      			{ type: Sequelize.STRING,  allowNull: false}
 	});
 	

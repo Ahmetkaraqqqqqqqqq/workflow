@@ -21,6 +21,18 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 		});
 	}
 
+	User.updateUser = function(params, callback){
+		$http.post('/a/users/updateUser', params).success(function (data){
+			if (data.error === undefined) {
+				if (typeof callback == 'function') {
+					callback(data);
+				}
+			} else{
+				callback({});
+			}
+		});
+	}
+
 	User.login = function(params, callback){
 		$http.post('/a/users/login', params)
 			 .success(function (data){

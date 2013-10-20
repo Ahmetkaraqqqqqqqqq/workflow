@@ -32,19 +32,21 @@ app.get('/a/task', task.finder);
 
 var user = require('./routes/user');
 app.post('/a/users/signup', user.add);
+app.post('/a/users/account', ensureAuthenticated);
+app.post('/a/users/updateUser', user.updateUser);
 app.post('/a/users/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) {
-      return next(err); // will generate a 500 error
-    }
-    // Generate a JSON response reflecting authentication status
-    if (! user) {
-      return res.send({ success : false, message : 'authentication failed' });
-    }
-    req.session.user = user;
-    return res.send({ success : true, message : 'authentication succeeded' , user : user});
-  })(req, res, next);
-});
+    passport.authenticate('local', function(err, user, info) {
+      if (err) {
+        return next(err); // will generate a 500 error
+      }
+      // Generate a JSON response reflecting authentication status
+      if (! user) {
+        return res.send({ success : false, message : 'authentication failed' });
+      }
+      req.session.user = user;
+      return res.send({ success : true, message : 'authentication succeeded' , user : user});
+    })(req, res, next);
+  });
 app.get('/a/users/logout', function(req, res){
   console.log("efetuando logout");
   req.reset();
@@ -65,7 +67,6 @@ app.get('/a/users/getUser', function(req, res, callback){
 
 //filtro de login
 app.all('*', function(req,res,next){
-  console.log("FILTRO DE LOGIN", req.params);
   if (req.params[0] === '/app/#/users/singin'){
     next();
   }else{
