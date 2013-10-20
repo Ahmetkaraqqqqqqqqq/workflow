@@ -63,7 +63,9 @@ app.get('/a/users/getUser', function(req, res, callback){
 // 	res.redirect("/app/");
 // });
 
+//filtro de login
 app.all('*', function(req,res,next){
+  console.log("FILTRO DE LOGIN", req.params);
   if (req.params[0] === '/app/#/users/singin'){
     next();
   }else{
@@ -102,6 +104,10 @@ passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password
 
 function ensureAuthenticated(req, res, next) {
   var estaAutenticado = req.session.user != null;
-  if (estaAutenticado) { next(); }
+  if (estaAutenticado) { 
+    console.log("Esta autenticado =D Usuario = ", req.session.user.email);
+    console.log("Direcionando para = ", req.params[0] );
+    next(); 
+  }
   res.redirect("/app/#/users/singin");
 }
