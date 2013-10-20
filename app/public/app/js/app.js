@@ -12,8 +12,16 @@ angular.module('nsApp', [
 			templateUrl: 'partials/index.html'
 		});
 
+		$routeProvider.when('/landing', {
+			templateUrl: 'landing.html'
+		});
+
 		$routeProvider.when('/tasks/new', {
 			templateUrl: 'partials/add_task.html'
+		});
+
+		$routeProvider.when('/notes', {
+			templateUrl: 'partials/notes.html'
 		});
 
 		$routeProvider.when('/users/signup', {

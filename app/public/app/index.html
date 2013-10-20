@@ -20,7 +20,7 @@
             <section class="vbox">
                 <header class="nav-bar dker">
                     <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="body"> <i class="icon-reorder"></i> 
-                    </a> <a href="#" class="nav-brand" data-toggle="fullscreen">todo </a> 
+                    </a> <a href="#" class="nav-brand" data-toggle="fullscreen">Arrange</a> 
                     <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user"> <i class="icon-comment-alt"></i> 
                     </a>
                 </header>
@@ -78,11 +78,11 @@
                     </div>
                     <nav class="nav-primary hidden-xs">
                         <ul class="nav">
-                            <li>
+                            <li style="display:none;">
                                 <a href="index.html"> <i class="icon-eye-open"></i>  <span>Discover</span> 
                                 </a>
                             </li>
-                            <li class="dropdown-submenu">
+                            <li style="display:none;" class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-beaker"></i>  <span>UI kit</span> 
                                 </a>
                                 <ul class="dropdown-menu">
@@ -119,26 +119,26 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li style="display:none;">
                                 <a href="mail.html"> <b class="badge bg-primary pull-right">3</b>  <i class="icon-envelope-alt"></i>  <span>Mail</span> 
                                 </a>
                             </li>
                             <li class="active">
-                                <a href="tasks.html"> <i class="icon-tasks"></i>  <span>Tasks</span> 
+                                <a href="#/"> <i class="icon-tasks"></i>  <span>Tasks</span> 
                                 </a>
                             </li>
                             <li>
-                                <a href="notes.html"> <i class="icon-pencil"></i>  <span>Notes</span> 
+                                <a href="#/notes"> <i class="icon-pencil"></i>  <span>Notes</span> 
                                 </a>
                             </li>
-                            <li>
+                            <li style="display:none;">
                                 <a href="timeline.html"> <i class="icon-time"></i>  <span>Timeline</span> 
                                 </a>
                             </li>
                         </ul>
                     </nav>
                     <!-- note -->
-                    <div class="bg-dark lter wrapper hidden-vertical animated fadeInUp text-sm"> <a href="#" data-dismiss="alert" class="pull-right m-r-n-sm m-t-n-sm"><i class="icon-close icon-remove "></i></a> Hey, this is an real app built with <a href="http://backbonejs.org/" target="_blank"><strong>Backbone</strong></a>, have
+                    <div style="display:none;" class="bg-dark lter wrapper hidden-vertical animated fadeInUp text-sm"> <a href="#" data-dismiss="alert" class="pull-right m-r-n-sm m-t-n-sm"><i class="icon-close icon-remove "></i></a> Hey, this is an real app built with <a href="http://backbonejs.org/" target="_blank"><strong>Backbone</strong></a>, have
                         fun!</div>
                     <!-- / note -->
                 </section>
@@ -170,6 +170,9 @@
 
     <!-- ANGULAR JS SCRIPTS -->
     <script src="css/app.v1.js"></script>
+
+    <!-- Notes -->
+    <script src="lib/apps/notes.js" cache="false"></script>     
 
 </body>
 
