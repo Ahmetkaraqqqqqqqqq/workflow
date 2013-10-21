@@ -24,3 +24,10 @@ exports.finder = function(params, callback){
 		callback(data);
 	});
 }
+
+exports.updateStatus = function(params, callback){
+    console.log('params', params);
+    models.find(params.id).success(function(data){
+
+    });
+}
