@@ -1,7 +1,6 @@
-<!-- .vbox -->
 <section class="vbox">
     <header class="header bg-white b-b">
-        <p>Welcome to John's profile</p>
+        <p>Welcome to {{user.name}} profile</p>
     </header>
     <section class="scrollable">
         <section class="hbox stretch">
@@ -11,13 +10,14 @@
                         <div class="wrapper">
                             <div class="clearfix m-b">
                                 <a href="#" class="pull-left thumb m-r">
-                                    <img src="images/avatar.jpg" class="img-circle">
+                                    <img src="{{ imagem_gravatar }}" class="img-circle">
                                 </a>
                                 <div class="clear">
-                                    <div class="h3 m-t-xs m-b-xs">John.Smith</div> <small class="text-muted"><i class="icon-map-marker"></i> London, UK</small> 
+                                    <div class="h3 m-t-xs m-b-xs">{{user.name}}</div> 
+                                    <small class="text-muted">{{user.email}}</small> 
                                 </div>
                             </div>
-                            <div class="panel wrapper">
+                            <div style="display:none;" class="panel wrapper">
                                 <div class="row">
                                     <div class="col-xs-4">
                                         <a href="#"> <span class="m-b-xs h4 block">245</span>  <small class="text-muted">Followers</small> 
@@ -33,14 +33,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="btn-group btn-group-justified m-b">
+                            <div style="display:none;" class="btn-group btn-group-justified m-b">
                                 <a class="btn btn-success btn-rounded" data-toggle="button"> <span class="text"> <i class="icon-eye-open"></i> Follow </span>  <span class="text-active"> <i class="icon-eye-open"></i> Following </span> 
                                 </a>
                                 <a class="btn btn-info btn-rounded"> <i class="icon-comment-alt"></i> Chat</a>
                             </div>
-                            <div> <small class="text-uc text-xs text-muted">about me</small> 
-                                <p>Artist</p> <small class="text-uc text-xs text-muted">info</small> 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.</p>
+                            <div> <small class="text-uc text-xs text-muted">Position</small> 
+                                <p>{{description_position}}</p> <small class="text-uc text-xs text-muted">about me</small> 
+                                <p>{{user.aboutme}}</p>
                                 <div class="line"></div> <small class="text-uc text-xs text-muted">connection</small> 
                                 <p class="m-t-sm"> <a href="#" class="btn btn-rounded btn-twitter btn-icon"><i class="icon-twitter"></i></a>  <a href="#" class="btn btn-rounded btn-facebook btn-icon"><i class="icon-facebook"></i></a> 
                                     <a href="#" class="btn btn-rounded btn-gplus btn-icon"><i class="icon-google-plus"></i>
@@ -54,220 +54,81 @@
             <aside class="bg-white">
                 <section class="vbox">
                     <header class="header bg-light bg-gradient">
-                        <ul class="nav nav-tabs nav-white">
-                            <li class="active"><a href="#activity" data-toggle="tab">Activity</a>
-                            </li>
-                            <li class=""><a href="#events" data-toggle="tab">Events</a>
-                            </li>
-                            <li class=""><a href="#interaction" data-toggle="tab">Interaction</a>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#basic" data-toggle="tab">Meus Dados</a>
                             </li>
                         </ul>
                     </header>
-                    <section class="scrollable">
+                    <section class="scrollable" ng-init="initAccount()">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="activity">
-                                <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">3 minuts ago</small>  <strong class="block">Drew Wllon</strong>  <small>Wellcome and play this web application template ... </small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">1 hour ago</small>  <strong class="block">Jonathan George</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">2 hours ago</small>  <strong class="block">Josh Long</strong>  <small>Vestibulum ullamcorper sodales nisi nec...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">1 day ago</small>  <strong class="block">Jack Dorsty</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">3 days ago</small>  <strong class="block">Morgen Kntooh</strong>  <small>Mobile first web app for startup...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">Jun 21</small>  <strong class="block">Yoha Omish</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">May 10</small>  <strong class="block">Gole Lido</strong>  <small>Vestibulum ullamcorper sodales nisi nec...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">Jan 2</small>  <strong class="block">Jonthan Snow</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item" href="#email-content" data-toggle="class:show">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">3 minuts ago</small>  <strong class="block">Drew Wllon</strong>  <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">1 hour ago</small>  <strong class="block">Jonathan George</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">2 hours ago</small>  <strong class="block">Josh Long</strong>  <small>Vestibulum ullamcorper sodales nisi nec...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">1 day ago</small>  <strong class="block">Jack Dorsty</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">3 days ago</small>  <strong class="block">Morgen Kntooh</strong>  <small>Mobile first web app for startup...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">Jun 21</small>  <strong class="block">Yoha Omish</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">May 10</small>  <strong class="block">Gole Lido</strong>  <small>Vestibulum ullamcorper sodales nisi nec...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">Jan 2</small>  <strong class="block">Jonthan Snow</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item" href="#email-content" data-toggle="class:show">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">3 minuts ago</small>  <strong class="block">Drew Wllon</strong>  <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">1 hour ago</small>  <strong class="block">Jonathan George</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">2 hours ago</small>  <strong class="block">Josh Long</strong>  <small>Vestibulum ullamcorper sodales nisi nec...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar_default.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">1 day ago</small>  <strong class="block">Jack Dorsty</strong>  <small>Morbi nec nunc condimentum...</small> 
-                                        </a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="thumb-sm pull-left m-r-sm">
-                                            <img src="images/avatar.jpg" class="img-circle">
-                                        </a>
-                                        <a href="#" class="clear"> <small class="pull-right">3 days ago</small>  <strong class="block">Morgen Kntooh</strong>  <small>Mobile first web app for startup...</small> 
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-pane" id="events">
-                                <div class="text-center wrapper"> <i class="icon-spinner icon-spin icon-large"></i> 
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="interaction">
-                                <div class="text-center wrapper"> <i class="icon-spinner icon-spin icon-large"></i> 
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </section>
-            </aside>
-            <aside class="col-lg-4 b-l">
-                <section class="vbox">
-                    <section class="scrollable">
-                        <div class="wrapper">
-                            <section class="panel">
-                                <form>
-                                    <textarea class="form-control no-border" rows="5" placeholder="What are you doing..."></textarea>
-                                </form>
-                                <footer class="panel-footer bg-light lter">
-                                    <button class="btn btn-info pull-right btn-sm">POST</button>
-                                    <ul class="nav nav-pills nav-sm">
-                                        <li><a href="#"><i class="icon-camera"></i></a>
-                                        </li>
-                                        <li><a href="#"><i class="icon-facetime-video"></i></a>
-                                        </li>
-                                    </ul>
-                                </footer>
-                            </section>
-                            <section class="panel">
-                                <h4 class="font-thin padder">Latest Tweets</h4> 
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <p>Wellcome <a href="#" class="text-info">@Drew Wllon</a> and play this web application template, have fun1</p> <small class="block text-muted"><i class="icon-time"></i>2 minuts ago</small> 
-                                    </li>
-                                    <li class="list-group-item">
-                                        <p>Morbi nec <a href="#" class="text-info">@Jonathan George</a> nunc condimentum ipsum dolor sit amet, consectetur</p> <small class="block text-muted"><i class="icon-time"></i>1 hour ago</small> 
-                                    </li>
-                                    <li class="list-group-item">
-                                        <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p> <small class="block text-muted"><i class="icon-time"></i>2 hours ago</small> 
-                                    </li>
-                                </ul>
-                            </section>
-                            <section class="panel clearfix bg-info lter">
-                                <div class="panel-body">
-                                    <a href="#" class="thumb pull-left m-r">
-                                        <img src="images/avatar.jpg" class="img-circle">
-                                    </a>
-                                    <div class="clear"> <a href="#" class="text-info">@Mike Mcalidek <i class="icon-twitter"></i></a>  <small class="block text-muted">2,415 followers / 225 tweets</small>  <a href="#" class="btn btn-xs btn-success m-t-xs">Follow</a> 
+                            <section class="tab-pane active" id="basic">
+                                <form class="form-horizontal" method="get" data-validate="parsley">
+                                    <div class="form-group m-t-lg">
+                                        <label class="col-sm-3 control-label">Photo</label>
+                                        <div class="col-sm-4 media m-t-none">
+                                            <div class="bg-light pull-left text-center media-lg thumb-lg padder-v"><i class="icon-user inline icon-light icon-3x m-t-lg m-b-lg"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <input type="file" name="file" title="Change" class="btn btn-sm btn-info m-b-sm">
+                                                <br>
+                                                <button class="btn btn-sm btn-default">Delete</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Email</label>
+                                        <div class="col-sm-4">
+                                            <input ng-model="form.name" type="text" disabled="true" name="email" placeholder="{{user.email}}" class="bg-focus form-control" data-required="true" data-type="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">New Password</label>
+                                        <div class="col-sm-4">
+                                            <input ng-model="form.password" type="password" name="password" placeholder="Password" class="bg-focus form-control" value="{{user.password}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Confirm New Password</label>
+                                        <div class="col-sm-4">
+                                            <input type="password" name="confirmpassword" placeholder="Password" class="bg-focus form-control">
+                                            <div class="line line-dashed m-t-lg"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Name</label>
+                                        <div class="col-sm-4">
+                                            <input ng-model="form.name" type="text" name="username" placeholder="Name" data-required="true" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Position</label>
+                                        <div class="col-sm-4">
+                                            <select ng-model="form.position" name="account" class="form-control">
+                                                <option value="programmer">Programmer</option>
+                                                <option value="scrummaster">Scrum Master</option>
+                                                <option value="tester">Tester</option>
+                                                <option value="productowner">Product Owner</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Profile</label>
+                                        <div class="col-sm-5">
+                                            <textarea ng-model="form.aboutme" placeholder="Profile" rows="5" data-trigger="keyup" data-rangelength="[20,200]" class="form-control"></textarea>
+                                            <div style="display:none;" class="checkbox">
+                                                <label>
+                                                    <input name="agree" type="checkbox">Agree the <a href="#">terms and policy</a> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-4 col-sm-offset-3">
+                                            <button type="submit" class="btn btn-white">Cancel</button>
+                                            <button ng-click="updateUser()" type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </section>
                         </div>
                     </section>
@@ -276,5 +137,3 @@
         </section>
     </section>
 </section>
-<a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="body"></a>        
-<!-- /.vbox -->

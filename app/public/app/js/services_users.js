@@ -10,8 +10,19 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	var User = {};
 
 	User.add = function(params, callback){
-		console.log("User.singup on services_users.js");
-		$http.post('/a/users/singup', params).success(function (data){
+		$http.post('/a/users/signup', params).success(function (data){
+			if (data.error === undefined) {
+				if (typeof callback == 'function') {
+					callback(data);
+				}
+			} else{
+				callback({});
+			}
+		});
+	}
+
+	User.updateUser = function(params, callback){
+		$http.post('/a/users/updateUser', params).success(function (data){
 			if (data.error === undefined) {
 				if (typeof callback == 'function') {
 					callback(data);
@@ -23,7 +34,6 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	}
 
 	User.login = function(params, callback){
-		console.log("User.login on services_users.js");
 		$http.post('/a/users/login', params)
 			 .success(function (data){
 				if (data.error === undefined) {
@@ -40,7 +50,6 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 	}
 
 	User.logout = function(params, callback){
-		console.log("User.logout on services_users.js");
 		$http.get('/a/users/logout', params)
 			 .success(function (data){
 				if (data.error === undefined) {
@@ -53,6 +62,16 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 			 })
 			 .error(function (data){
 			 	console.log("erro ao tentar efetuar o logout");
+			 });
+	}
+
+	User.getUser = function(params, callback){
+		$http.get('/a/users/getUser', params, callback)
+			 .success(function (data){
+			 	callback(data);
+			 })
+			 .error(function (data){
+			 	callback(null);
 			 });
 	}
 
