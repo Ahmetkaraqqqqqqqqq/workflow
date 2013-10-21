@@ -141,6 +141,15 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 		});
 	}
 
+	$scope.mostrarMenu = function(params){
+		var url = window.location.toString();
+		var urlArray = url.split("/");
+		var pagina = urlArray[urlArray.length-1];
+		var islanding = (pagina.indexOf("landing")) != -1;
+		var mostrar = $scope.user != null && !islanding;
+		return mostrar;
+	}
+
 	$scope.get_gravatar = function(params){
 		var imagem;
 		User.getUser($scope.form, function(data){
