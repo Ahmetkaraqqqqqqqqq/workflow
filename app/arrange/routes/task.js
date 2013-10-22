@@ -22,6 +22,16 @@ exports.finder = function(req, res){
 	});
 }
 
-exports.updateStatus = function(req, res){
-    console.log('req 2', req.query);
+exports.findById = function(req, res){
+	var id = req.query.id;
+	controller.task.findById(id, function(task){
+		res.json(task);
+	});
+}
+
+exports.update = function(req, res){
+	console.log("passando")
+	controller.task.update(req.params, function(task){
+		res.json(task);
+	});
 }

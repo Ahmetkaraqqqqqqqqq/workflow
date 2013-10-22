@@ -10,24 +10,33 @@ exports.add = function(params, callback){
 	}).success(function(task){
 		callback(task);
 	});
-}
+};
 
 exports.all = function(callback){
 	models.Task.findAll().success(function(data){
 		callback(data);
 	});
-}
+};
 
 exports.finder = function(params, callback){
 	console.log('OLÀAA', params)
 	models.Task.findAll({where : {status: params}}).success(function(data){
 		callback(data);
 	});
-}
+};
 
-exports.updateStatus = function(params, callback){
+exports.findById = function(params, callback){
+
+	models.Task.findAll({where : {id: params}}).success(function(data){
+		callback(data);
+	});
+};
+
+exports.update = function(params, callback){
     console.log('params', params);
-    models.find(params.id).success(function(data){
-
+    models.Task.find(params.id).success(function(data){
+    	models.Task.update(params, {status:'done'}).success(function(){
+    		console.log("HIT A GROUND");
+    	});
     });
-}
+};

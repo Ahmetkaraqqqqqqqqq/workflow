@@ -27,8 +27,10 @@ app.use(app.router);
 
 var task = require('./routes/task');
 app.post('/a/tasks/new', ensureAuthenticated, task.add);
+app.put('/a/tasks/edit', ensureAuthenticated, task.update);
 app.get('/a/tasks', ensureAuthenticated, task.all);
 app.get('/a/task', task.finder);
+app.get('/a/taskby', task.findById);
 
 var user = require('./routes/user');
 app.post('/a/users/signup', user.add);

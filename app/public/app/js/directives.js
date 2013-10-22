@@ -99,11 +99,13 @@ angular.module('droppable', []).directive("droppable", function(){
 					var jsonDataStr = e.originalEvent.dataTransfer.getData('text/plain');
 					var jsonfy = JSON.parse(jsonDataStr);
 					console.log("olha a data", jsonfy.dataId);
-					console.log("Walter",jElm.attr('id'))
+					var id = jElm.attr('id');
 
 					//console.log("recieved ", jsonData);
 					if(jsonDataStr){
 						var jsonData = angular.fromJson(jsonDataStr);
+						var obj = JSON.parse(jsonData.dataId);
+						scope.update(obj, id);
 
 						scope.fnOnDrop(jsonData); // this will be called on the directive's parent scope
 					}

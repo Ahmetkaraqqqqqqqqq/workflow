@@ -13,7 +13,7 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 	//for handling the data as passed after the object is dropped
     $scope.fnOnDrop = function(jsonData){
         var obj = JSON.parse(jsonData.dataId);
-    	Task.find(obj.status, function(data){
+    	Task.find(obj, function(data){
     		console.log('data', data);
     	})
     };
@@ -65,6 +65,17 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 		});
 	}
 
+	$scope.update = function(from, to){
+		console.log('from', from);
+		Task.findById(from, function(task){
+			if(task){
+				Task.update(task, function(data){
+					console.log("honra")
+				});
+			};
+		});
+		console.log('to', to);
+	};
 
 	// ------------- User ------------------
 
