@@ -26,17 +26,16 @@ exports.finder = function(params, callback){
 };
 
 exports.findById = function(params, callback){
-
 	models.Task.findAll({where : {id: params}}).success(function(data){
-		callback(data);
+		models.Task.update(params, {status:'done'}).success(function(){
+    		console.log("HIT A GROUND");
+    	});
 	});
 };
 
 exports.update = function(params, callback){
     console.log('params', params);
     models.Task.find(params.id).success(function(data){
-    	models.Task.update(params, {status:'done'}).success(function(){
-    		console.log("HIT A GROUND");
-    	});
+    	console.log("doido")
     });
 };

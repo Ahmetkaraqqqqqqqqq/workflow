@@ -69,9 +69,7 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 		console.log('from', from);
 		Task.findById(from, function(task){
 			if(task){
-				Task.update(task, function(data){
-					console.log("honra")
-				});
+				console.log(task)
 			};
 		});
 		console.log('to', to);
