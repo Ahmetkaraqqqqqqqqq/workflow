@@ -99,6 +99,7 @@ angular.module('droppable', []).directive("droppable", function(){
 					var jsonDataStr = e.originalEvent.dataTransfer.getData('text/plain');
 					var jsonfy = JSON.parse(jsonDataStr);
 					console.log("olha a data", jsonfy.dataId);
+					console.log("Walter",jElm.attr('id'))
 
 					//console.log("recieved ", jsonData);
 					if(jsonDataStr){
