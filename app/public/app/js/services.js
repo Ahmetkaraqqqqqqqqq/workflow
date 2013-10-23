@@ -20,7 +20,7 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 				callback({});
 			}
 		});
-	}
+	};
 
 	Task.all = function(callback){
 		$http.get('/a/tasks').success(function(data){
@@ -32,7 +32,7 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 				callback({});
 			}
 		});
-	}
+	};
 
 	Task.find = function(params, callback){
 		$http.get('/a/task?status='+params.status).success(function(data){
@@ -44,6 +44,25 @@ angular.module('nsApp.services.task', []).factory('Task', ['$http', function ($h
 				callback({});
 			};
 		});
+	};
+
+	Task.findById = function(params, callback){
+		$http.get('/a/taskby?id='+params.id).success(function(data){
+			if (data.error === undefined) {
+				if (typeof callback == 'function') {
+					callback(data);
+				};
+			} else{
+				callback({});
+			};
+		});
+	};
+
+	Task.update = function(params, callback){
+		$http.put('/a/tasks/edit', params).success(function(data){
+			console.log("foi")
+		})
 	}
+
 	return Task;
 }]);

@@ -11,7 +11,7 @@
 					<aside>
 						<section class="vbox">
 							<section class="wrapper">
-								<div data-droppable="" class="task-board task-todo col-lg-4">
+								<div id="todo" data-droppable="" class="task-board task-todo col-lg-4">
 									<header>Todo</header>
 									<!-- todo task list -->
 									<ul ng-init="findTodo()" id="task-list">
@@ -38,10 +38,10 @@
 									</ul>
 								</div>
 
-								<div class="task-board task-doing col-lg-4">
+								<div id="doing" data-droppable="" class="task-board task-doing col-lg-4">
 									<header>Doing</header>
 									<!-- doing task list -->
-									<ul data-droppable="" ng-init="findDoing()" id="task-list">
+									<ul ng-init="findDoing()" id="task-list">
 										<li class="move" data-dataId="{{task}}" data-draggable="true" ng-repeat="task in doing">
 											<section class="panel">
 											    <header class="panel-heading">
@@ -65,10 +65,10 @@
 									</ul>
 								</div>
 
-								<div class="task-board task-done col-lg-4">
+								<div id="done" data-droppable="" class="task-board task-done col-lg-4">
 									<header>Done</header>
 									<!-- done task list -->
-									<ul data-droppable="" ng-init="findDone()" id="task-list">
+									<ul ng-init="findDone()" id="task-list">
 										<li class="move" data-dataId="{{task}}" data-draggable="true" draggable='true' ng-repeat="task in done">
 											<section class="panel">
 											    <header class="panel-heading">
