@@ -125,6 +125,22 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 		});
 	}
 
+	$scope.forgot_password = function(params){
+		User.login($scope.form, function(user){
+			if(user.success){
+				$scope.user = user;
+				$scope.imagem_gravatar = obterImagemGravatar(user.user.email);
+				$scope.mostrar_mensagem = false;
+		  		$location.path('/');
+			}else{
+				$scope.user = null;
+				$scope.mensagem = "Email ou senha inválido!";
+				$scope.mostrar_mensagem = true;
+				$location.path('/users/singin');
+			}
+		});
+	}
+
 	$scope.logout = function(params){
 		User.logout($scope.form, function(user){
 			$location.path('/users/singin');
