@@ -33,8 +33,7 @@ angular.module('nsApp', [
 		});
 
 		$routeProvider.when('/users/signup', {
-			templateUrl: 'partials/signup.html',
-			
+			templateUrl: 'partials/signup.html'
 		});
 
 		$routeProvider.when('/users/account', {
@@ -42,8 +41,15 @@ angular.module('nsApp', [
 		});
 
 		$routeProvider.when('/users/singin', {
-			templateUrl: 'partials/singin.html',
-			
+			templateUrl: 'partials/singin.html'
+		});
+
+		$routeProvider.when('/users/forgot_password', {
+			templateUrl: 'partials/forgot_password.html'
+		});
+
+		$routeProvider.when('/users/reset_password', {
+			templateUrl: 'partials/reset_password.html'
 		});
 
 		$routeProvider.otherwise({
