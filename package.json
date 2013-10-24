@@ -14,7 +14,7 @@
     "underscore": "1.5.1",
     "async": "~0.2.9",
     "request": "2.27.0",
-    "nodemailer": "*",
+    "nodemailer": "~0.5.3",
     "locale": "0.0.10",
     "nodetime": "~0.8.13",
     "passport": "~0.1.17",
