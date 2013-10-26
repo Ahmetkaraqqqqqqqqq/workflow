@@ -6,18 +6,18 @@ var Errors = require('./errors');
 // email templates
 var path = require('path');
 var emailTemplates = require('email-templates');
-var templatesDir = path.resolve(__dirname, '../admin/', 'emailTemplates');
+var templatesDir = path.resolve(__dirname, '../', 'emailTemplates');
 
 // configuration
 var env = process.env.NODE_ENV || 'development';
-var config = require('../../config/config')[env];
+var config = require('../../../config/config')[env];
 // var logger = require('./loggerService.js').logger;
 
 var transport = nodemailer.createTransport('SMTP', {
-  service: config.smtp.service,
+  service: 'Gmail',
   auth: {
-    user: config.smtp.user,
-    pass: config.smtp.pass
+    user: 'testeandrefelipecp',
+    pass: 'Teste2013'
   }
 });
 
@@ -37,11 +37,13 @@ var transport = nodemailer.createTransport('SMTP', {
 exports.sendMail = function(options, data, callback) {
   emailTemplates(templatesDir, function(err, template) {
     if (err) {
+      console.log("1 erro ao enviar email.", err);
       callback(new Errors.MailerError(err));
     } else {
       // Send a single email
       template(options.template, data, function(err, html, text) {
         if (err) {
+          console.log("2 erro ao enviar email.", err);
           callback(new Errors.MailerError(err));
         } else {
           transport.sendMail({
@@ -53,8 +55,10 @@ exports.sendMail = function(options, data, callback) {
             text: text
           }, function(err, responseStatus) {
             if (err) {
+              console.log("3 erro ao enviar email.", err);
               callback(new Errors.MailerError(err));
             } else {
+              console.log("sucesso ao enviar email.");
               callback(null, responseStatus);
             }
           });

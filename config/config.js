@@ -15,6 +15,14 @@ config.db.user = process.env.RDS_USERNAME      || process.env.DB_USERNAME || def
 config.db.password =  process.env.RDS_PASSWORD || process.env.DB_PASSWORD || defaultConfig.password;
 config.db.dbname = process.env.RDS_DB_NAME     || process.env.DB_NAME     || defaultConfig.database;
 
+//some app defaults
+config.appName = 'Arrange';
+config.domain  = 'http://localhost:3000/';
+
+config.email = {
+    registration: 'testeandrefelipecp@gmail.com'
+  , info: 'testeandrefelipecp@gmail.com'
+}
 
 config.facebook = {
         appId: "APP_ID"

@@ -9,7 +9,18 @@ module.exports = {
 			aboutme:    { type: DataTypes.STRING(255), allowNull: true},    //pawword  varchar(255)  NO    NULL  
       position:   { type: DataTypes.STRING(255), allowNull: true},    //pawword  varchar(255)  NO    NULL  
 			created_at: { type: DataTypes.DATE   , allowNull: false}, 	  //created_at	datetime	NO		NULL	
-			updated_at: { type: DataTypes.DATE   , allowNull: false}  	  //updated_at	datetime	NO		NULL	
+			updated_at: { type: DataTypes.DATE   , allowNull: false},  	  //updated_at	datetime	NO		NULL	
+      
+      // auth
+      hashed_password:    { type: DataTypes.STRING(255),  allowNull: true},
+      activationKey:      { type: DataTypes.STRING(255),  allowNull: true},
+      activationKeyUsed:  { type: DataTypes.BOOLEAN,      allowNull: true},
+      passwordResetKey:   { type: DataTypes.STRING(255),  allowNull: true},
+      passwordResetDate:  { type: DataTypes.DATE,         allowNull: true},
+      passwordResetUsed:  { type: DataTypes.BOOLEAN,      allowNull: true},
+      loginAttempts:      { type: DataTypes.INTEGER,      allowNull: true},
+      lockUntil:          { type: DataTypes.INTEGER,      allowNull: true},
+      accountDeactivated: { type: DataTypes.BOOLEAN,      allowNull: true}
     	}
     );
     done()
