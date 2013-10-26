@@ -20,7 +20,8 @@
     "nodetime": "~0.8.13",
     "passport": "~0.1.17",
     "connect-ensure-login": "~0.1.1",
-    "passport-local": "~0.1.6"
+    "passport-local": "~0.1.6",
+    "uuid-v4": "~0.1.0"
   },
   "devDependencies": {
     "mocha": "1.12",
