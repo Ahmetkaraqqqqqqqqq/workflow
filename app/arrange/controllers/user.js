@@ -25,6 +25,17 @@ exports.updateUser = function(params, callback){
   });
 }
 
+exports.forgot_password = function(params, callback){
+    models.User.find({ where: {email: params.email} })
+        .success(function(user) {
+          return done(null, true, { message: 'Email com instruções enviado para: ' + params.email });
+        })
+        .error(function(user) {
+          if (!user) { return done(null, false, { message: 'Email inexistente.'}); }
+          return done(null, false, { message: 'Erro inesperado.' });
+        });
+}
+
 exports.account = function(params, callback){
   console.log('parças', params)
 }

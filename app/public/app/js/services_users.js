@@ -49,6 +49,22 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 			 });
 	}
 
+	User.forgot_password = function(params, callback){
+		$http.post('/a/users/forgot_password', params)
+			 .success(function (data){
+				if (data.error === undefined) {
+					if (typeof callback == 'function') {
+						callback(data);
+					}
+				} else{
+					callback({});
+				}
+			 })
+			 .error(function (data){
+			 	console.log("erro ao tentar resetar a senha");
+			 });
+	}
+
 	User.logout = function(params, callback){
 		$http.get('/a/users/logout', params)
 			 .success(function (data){
