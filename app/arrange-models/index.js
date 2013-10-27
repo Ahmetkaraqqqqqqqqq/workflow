@@ -26,5 +26,10 @@ models.forEach(function(model) {
 	module.exports[model] = require(__dirname + '/schemas/' + model)(sequelize);
 });
 
+//Relacionamentos
+(function(m) {	
+	m.Board.hasMany(m.Task, {onDelete: 'cascade', foreignKeyConstraint : true});
+	m.Task.belongsTo(m.Board, {as : 'Board'});
+})(module.exports);
 
 module.exports['Sequelize'] = sequelize;
