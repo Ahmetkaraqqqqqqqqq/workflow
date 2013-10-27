@@ -18,7 +18,7 @@ var sequelize = new Sequelize(appConfig.db.dbname, appConfig.db.user, appConfig.
 
 var models = [ 
 	
-	"Note", "Task" , "User"
+	"Note", "Task" , "User", "Board"
 
 ];
 
