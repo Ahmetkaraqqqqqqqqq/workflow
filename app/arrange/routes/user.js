@@ -16,6 +16,13 @@ exports.updateUser = function(req, res){
 	});
 }
 
+exports.forgotPassword = function(req, res){
+	var params = req.body
+	controller.user.forgotPassword(params, function(user){
+		res.json(user);
+	});
+}
+
 exports.login = function(req, res){
 	var params = req.body
 	console.log(params)

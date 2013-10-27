@@ -49,8 +49,9 @@ angular.module('nsApp.services.user', []).factory('User', ['$http', function ($h
 			 });
 	}
 
-	User.forgot_password = function(params, callback){
-		$http.post('/a/users/forgot_password', params)
+	User.forgotPassword = function(params, callback){
+		console.log("forgotPassword on services");
+		$http.post('/a/users/forgotpassword', params)
 			 .success(function (data){
 				if (data.error === undefined) {
 					if (typeof callback == 'function') {

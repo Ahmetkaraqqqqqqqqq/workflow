@@ -134,8 +134,9 @@ function AppCtrl ($rootScope, $scope, $location, Task, User){
 		});
 	}
 
-	$scope.forgot_password = function(params){
-		User.forgot_password($scope.form, function(message){
+	$scope.forgotPassword = function(params){
+		console.log("forgotPassword on Controllers");
+		User.forgotPassword($scope.form, function(message){
 			
 		});
 	}

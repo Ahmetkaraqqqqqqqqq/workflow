@@ -52,6 +52,10 @@ angular.module('nsApp', [
 			templateUrl: 'partials/reset_password.html'
 		});
 
+		$routeProvider.when('/users/activate/', {
+			templateUrl: 'partials/reset_password.html'
+		});
+
 		$routeProvider.otherwise({
 			redirectTo: '/'
 		});

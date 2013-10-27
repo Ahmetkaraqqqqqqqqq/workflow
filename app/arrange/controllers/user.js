@@ -19,14 +19,14 @@ exports.add = function(params, callback){
     var options = {
       template: 'invite',
       from: config.appName + ' <' + config.email.registration + '>',
-      subject: 'Thank you for registering for ' + config.appName
+      subject: 'Obrigado por se registrar no ' + config.appName
     };
 
     var data = {
       email: user.email,
       name: user.first,
       appName: config.appName,
-      activationLink: config.domain + '/a/user/activate/' +
+      activationLink: config.domain + '/a/users/activate/' + user.id + '/' +
         user.activationKey
     };
 
@@ -52,29 +52,40 @@ exports.updateUser = function(params, callback){
 
 
 
-exports.forgot_password = function(params, callback){
+exports.forgotPassword = function(params, callback){
+    console.log("forgotPassword on user.js");
     models.User.find({ where: {email: params.email} })
-        .success(function(user) {
-          // email user
-            var options = {
-              template: 'invite',
-              from: config.appName + ' <' + config.email.registration + '>',
-              subject: 'Thank you for registering for ' + config.appName
-            };
+        .success(function(userEncontrado) {
+            models.User.update({
+                  passwordResetKey : uuid(),
+                  passwordResetDate : new Date(),
+                  passwordResetUsed : false
+                })
+                .success(function(user) {
+                    // email user
+                    var options = {
+                      template: 'forgot_password',
+                      from: config.appName + ' <' + config.email.registration + '>',
+                      subject: 'Esqueceu sua senha do ' + config.appName + '?'
+                    };
 
-            var data = {
-              email: newUser.email,
-              name: newUser.first,
-              appName: config.appName,
-              activationLink: config.domain + '/activate/' +
-                newUser.auth.activationKey
-            };
+                    var data = {
+                      appName: config.appName,
+                      activationLink: config.domain + '/users/reset_password/' + userEncontrado.id + '/' +
+                        userEncontrado.activationKey
+                    };
 
-            mailerService.sendMail(options, data, function(err, response) {
-              // TODO: what should happen if this email fails???
-              // should already be logged by mailerService
-            });
+                    mailerService.sendMail(options, data, function(err, response) {
+                      // TODO: what should happen if this email fails???
+                      // should already be logged by mailerService
+                    });
 
+                  return done(null, true, { message: 'Email com instruções enviado para: ' + params.email });
+                })
+                .error(function(user) {
+                  if (!user) { return done(null, false, { message: 'Email inexistente.'}); }
+                  return done(null, false, { message: 'Erro inesperado.' });
+                });
           return done(null, true, { message: 'Email com instruções enviado para: ' + params.email });
         })
         .error(function(user) {

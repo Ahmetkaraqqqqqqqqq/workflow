@@ -36,6 +36,7 @@ var user = require('./routes/user');
 app.post('/a/users/signup', user.add);
 app.post('/a/users/account', ensureAuthenticated);
 app.post('/a/users/updateUser', user.updateUser);
+app.post('/a/users/forgotpassword', user.forgotPassword);
 app.post('/a/users/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
       if (err) {
